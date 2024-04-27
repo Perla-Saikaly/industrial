@@ -1,0 +1,51 @@
+version: '3'
+networks:
+  api-network:
+    driver: bridge
+
+services:
+  Kids-handwritten-predicition-for-api:
+    stdin_open: true
+    tty: true
+    build:
+      context: ./business_logic
+      dockerfile: Dockerfile
+    command: python app.py
+    ports:
+      - "8000:8000"
+    networks:
+      - api-network
+    environment:
+      - PORT=8000
+      - train_URL=http://host.docker.internal:8001/train
+      - GUI_URL=http://host.docker.internal:8002/GUI
+      
+
+  handwritten-predicition-api:
+    stdin_open: true
+    tty: true
+    build:
+      context: ./training
+      dockerfile: Dockerfile
+    command: python train.py
+    ports:
+      - "8001:8001"
+    networks:
+      - api-network
+    environment:
+      - PORT=8001
+
+  GUI-api:
+    stdin_open: true
+    tty: true
+    build:
+      context: ./GUI
+      dockerfile: Dockerfile
+    command: python handwritten.py
+    ports:
+      - "8003:8003"
+    networks:
+      - api-network
+    environment:
+      - PORT=8003
+
