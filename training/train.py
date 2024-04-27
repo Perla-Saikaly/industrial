@@ -4,7 +4,8 @@ from scipy.optimize import minimize
 from flask import Flask, send_file
 
 app = Flask(__name__)
-
+def run_flask():
+    app.run(host='0.0.0.0', port=8002)
 @app.route('/theta1')
 def get_theta1():
     return send_file('training/Theta1.txt', as_attachment=True)
