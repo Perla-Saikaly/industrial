@@ -1,6 +1,17 @@
 from scipy.io import loadmat
 import numpy as np
 from scipy.optimize import minimize
+from flask import Flask, send_file
+
+app = Flask(__name__)
+
+@app.route('/theta1')
+def get_theta1():
+    return send_file('training/Theta1.txt', as_attachment=True)
+
+@app.route('/theta2')
+def get_theta2():
+    return send_file('training/Theta2.txt', as_attachment=True)
 
 # Loading mat file
 data = loadmat('training\mnist-original.mat')
@@ -132,3 +143,8 @@ print('Precision =', true_positive/(true_positive + false_positive))
 # Saving Thetas in .txt file
 np.savetxt('training/Theta1.txt', Theta1, delimiter=' ')
 np.savetxt('training/Theta2.txt', Theta2, delimiter=' ')
+
+
+
+if __name__ == '__main__':
+    run_flask()

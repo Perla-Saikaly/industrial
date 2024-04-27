@@ -5,6 +5,20 @@ import pyttsx3
 import tkinter as tk
 from PIL import ImageGrab
 from tkinter import ROUND, TRUE
+from flask import Flask, send_file
+from threading import Thread
+
+
+app = Flask(__name__)
+
+def run_flask():
+    app.run(host='0.0.0.0', port=8002)
+
+@app.route('/GUI')
+def get_gui_script():
+    return send_file('handwritten.py')
+
+
 
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty("voices")
@@ -122,3 +136,10 @@ cv.place(x=120, y=70)
 cv.bind('<Button-1>', event_activation)
 
 window.mainloop()
+
+
+if __name__ == "__main__":
+    t = Thread(target=run_flask)
+    t.start()
+
+    
