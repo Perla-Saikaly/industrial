@@ -1,0 +1,7 @@
+Flask==2.0.1
+numpy==1.22.0
+pyttsx3
+pyaudio
+SpeechRecognition
+pygame
+Pillow
