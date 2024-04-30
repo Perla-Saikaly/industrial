@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Application</title>
+  <style>
+    .button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <button class="button" id="trainButton">Train</button>
+  <button class="button" id="guiButton">GUI</button>
+
+  <script>
+    document.getElementById("trainButton").addEventListener("click", function() {
+      window.location.href = "/train";
+    });
+
+    document.getElementById("guiButton").addEventListener("click", function() {
+      window.location.href = "/gui";
+    });
+  </script>
+</body>
+</html>
