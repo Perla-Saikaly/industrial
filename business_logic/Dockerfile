@@ -6,11 +6,11 @@ WORKDIR /app
  
 # Copy your Python application code into the container
 COPY . /app
-
+ 
 # Install any dependencies using pip
 RUN pip install -r requirements.txt
 
-EXPOSE 8002
+EXPOSE 8000
  
 # Set the entry point or command to run when the container starts
-CMD ["python", "handwritten.py"]
+CMD ["python", "app.py"]
