@@ -6,13 +6,11 @@ from flask import Flask, send_file
 app = Flask(__name__)
 def run_flask():
     app.run(host='0.0.0.0', port=8002)
-@app.route('/theta1')
-def get_theta1():
-    return send_file('training/Theta1.txt', as_attachment=True)
 
-@app.route('/theta2')
-def get_theta2():
-    return send_file('training/Theta2.txt', as_attachment=True)
+	
+@app.route('/train')
+def get_train_script():
+    return send_file('train.py')
 
 # Loading mat file
 data = loadmat('training\mnist-original.mat')
