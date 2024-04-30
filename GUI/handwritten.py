@@ -14,7 +14,7 @@ app = Flask(__name__)
 def run_flask():
     app.run(host='0.0.0.0', port=8002)
 
-@app.route('/GUI')
+@app.route('/gui')
 def get_gui_script():
     return send_file('handwritten.py')
 

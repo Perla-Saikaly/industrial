@@ -4,7 +4,7 @@ networks:
     driver: bridge
 
 services:
-  Kids-handwritten-predicition-for-api:
+  kids-handwritten-predicition-for-api:
     stdin_open: true
     tty: true
     build:
@@ -18,7 +18,7 @@ services:
     environment:
       - PORT=8000
       - train_URL=http://host.docker.internal:8001/train
-      - GUI_URL=http://host.docker.internal:8002/GUI
+      - gui_URL=http://host.docker.internal:8002/gui
       
 
   handwritten-predicition-api:
@@ -35,11 +35,11 @@ services:
     environment:
       - PORT=8001
 
-  GUI-api:
+  gui-api:
     stdin_open: true
     tty: true
     build:
-      context: ./GUI
+      context: ./gui
       dockerfile: Dockerfile
     command: python handwritten.py
     ports:
