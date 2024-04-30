@@ -109,18 +109,18 @@ global l1, cv, rand, window
 window = tk.Tk()
 window.title("let's learn numbers")
 window.geometry("600x500")
-window.configure(bg="#fbf29b")  # Set background color
+window.configure(bg="lightblue")  # Set background color
 
 l1 = tk.Label()
 
 rand=random.randint(0,9)
 text = "Try " + str(rand)
 # Label
-L1 = tk.Label(window, text=text, font=('Comic Sans MS', 25), fg="#252a2a",bg="#fbf29b")
+L1 = tk.Label(window, text=text, font=('Comic Sans MS', 25), fg="#252a2a",bg="lightblue")
 L1.place(x=250, y=10)
 
 # Button to clear canvas
-b1 = tk.Button(window, text="Try again", font=('Comic Sans MS', 20), bg="#aed8e6", fg="#252a2a", command=tryagain)
+b1 = tk.Button(window, text="Try again", font=('Comic Sans MS', 20), bg="#fbf29b", fg="#252a2a", command=tryagain)
 b1.place(x=95, y=370)
 
 # Button to predict digit drawn on canvas
