@@ -1,6 +1,3 @@
 Flask
 numpy
-pyttsx3
-pyaudio
-SpeechRecognition
 Pillow

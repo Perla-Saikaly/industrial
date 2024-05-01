@@ -1,7 +1,5 @@
 import random
-import speech_recognition as sr
 import numpy as np
-import pyttsx3
 import tkinter as tk
 from PIL import ImageGrab
 from tkinter import ROUND, TRUE
@@ -20,13 +18,6 @@ def get_gui_script():
 
 
 
-engine = pyttsx3.init("sapi5")
-voices = engine.getProperty("voices")
-engine.setProperty("voices", voices[0].id)
-# text to speech
-def speak(audio):
-    engine.say(audio)
-    engine.runAndWait()
 def predict(Theta1, Theta2, X):
 	m = X.shape[0]
 	one_matrix = np.ones((m, 1))
@@ -74,11 +65,11 @@ def check():
     if(rand==pred[0]):	
         l1 = tk.Label(window, text="✔️",fg="green", font=('Comic Sans MS', 34),bg="#fbf29b")
         l1.place(x=260, y=437)
-        speak("That's good its a  "+str(rand))
+       # speak("That's good its a  "+str(rand))
     else:
         l1 = tk.Label(window, text="❌",fg="red", font=('Comic Sans MS', 34),bg="#fbf29b")
         l1.place(x=260, y=437)
-        speak("Try again")
+        #speak("Try again")
 # To draw on canvas
 def draw_lines(event):
 	global lastx, lasty

@@ -13,7 +13,7 @@ def get_train_script():
     return send_file('train.py')
 
 # Loading mat file
-data = loadmat('training\mnist-original.mat')
+data = loadmat('mnist-original.mat')
 
 # Extracting features from mat file
 X = data['data']
@@ -140,8 +140,8 @@ false_positive = len(y_train) - true_positive
 print('Precision =', true_positive/(true_positive + false_positive))
 
 # Saving Thetas in .txt file
-np.savetxt('training/Theta1.txt', Theta1, delimiter=' ')
-np.savetxt('training/Theta2.txt', Theta2, delimiter=' ')
+np.savetxt('Theta1.txt', Theta1, delimiter=' ')
+np.savetxt('Theta2.txt', Theta2, delimiter=' ')
 
 
 
