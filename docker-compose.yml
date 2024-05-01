@@ -35,7 +35,7 @@ services:
     environment:
       - PORT=8001
 
-  gui-api:
+  industrial-gui-api-1 :
     stdin_open: true
     tty: true
     build:
