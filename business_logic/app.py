@@ -9,7 +9,7 @@ def index():
 
 @app.route('/train')
 def train():
-    subprocess.Popen(['python', 'train.py'])
+    subprocess.Popen(['python', r'training\train.py'])
     return redirect('/')
 
 @app.route('/gui')

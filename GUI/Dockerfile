@@ -9,10 +9,11 @@ WORKDIR /app
 COPY . /app
 
 
+
 # Install any dependencies using pip
 RUN pip install -r requirements.txt
 
 EXPOSE 8002
  
 # Set the entry point or command to run when the container starts
-CMD ["python", "handwritten.py"]
+CMD ["python", "/app/handwritten.py"]
